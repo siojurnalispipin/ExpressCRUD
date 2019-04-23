@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CURD Mahasiswa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Data Mahasiswa
+      </h1>
+      <p class="subtitle">
+        Data mahasiwa with <strong>CRUD</strong>!
+      </p>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><abbr title="Position">No</abbr></th>
+            <th>Nama</th>
+            <th><abbr title="Played">Umur</abbr></th>
+            <th><abbr title="Won">JK</abbr></th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th><abbr title="Position">No</abbr></th>
+            <th>Nama</th>
+            <th><abbr title="Played">Umur</abbr></th>
+            <th><abbr title="Won">JK</abbr></th>
+            <th>Aksi</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% for(var i=0; i<data.length; i++) {%>
+          <tr>
+            <th><%= i+1 %></th>
+            <td><%= data[i].name %></td>
+            <td><%= data[i].umur %></td>
+            <td><%= data[i].jk %></td>
+            <td><a class="button is-small">Print</a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <div class="columns">
+        <div class="column">
+          <h2>Tambah Mahasiswa</h2>
+
+          <form action="/data" method="POST">
+            <div class="field">
+              <input class="input" type="text" placeholder="name" name="name">
+            </div>
+            <div class="field">
+              <input class="input" type="text" placeholder="Jenis Kelamin" name="jk">
+            </div>
+            <div class="field">
+              <input class="input" type="number" placeholder="Umur" name="umur">
+            </div>
+            <button class="button" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="column">
+          <div>
+            <h2>Create Dummy data Mahasiswa</h2>
+            <button class="button" id="update"> Tambah Data </button>
+          </div>
+          <br>
+          <div>
+            <h2>Delete Dummy Data Mahasiswa</h2>
+            <button class="button" id="delete"> Delete first Dummy Data Mahasiswa </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
